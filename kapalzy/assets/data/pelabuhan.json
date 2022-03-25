@@ -1,0 +1,52 @@
+[
+    {
+        "id": "BKH",
+        "nama": "Bakauheni",
+        "provinsi": "Lampung"
+    },
+    {
+        "id": "TPR",
+        "nama": "Tanjung Priok",
+        "provinsi": "Jakarta"
+    },
+    {
+        "id": "TPE",
+        "nama": "Tanjung Perak",
+        "provinsi": "Jawa Timur"
+    },
+    {
+        "id": "KTP",
+        "nama": "Ketapang",
+        "provinsi": "Jawa Timur"
+    },
+    {
+        "id": "HRB",
+        "nama": "Harbour Bay",
+        "provinsi": "Kepulauan Riau"
+    },
+    {
+        "id": "DWK",
+        "nama": "Dwikora",
+        "provinsi": "Kalimantan Barat"
+    },
+    {
+        "id": "SKL",
+        "nama": "Sunda Kelapa",
+        "provinsi": "Jakarta"
+    },
+    {
+        "id": "SKH",
+        "nama": "Soekarno-Hatta",
+        "provinsi": "Sulawesi Selatan"
+    },
+    {
+        "id": "MRK",
+        "nama": "Merak",
+        "provinsi": "Banten"
+    },
+    {
+        "id": "BTC",
+        "nama": "Batam-Center",
+        "provinsi": "Kepulauan Riau"
+    }
+]

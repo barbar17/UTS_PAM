@@ -1,11 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
+import HomeScreen from './src/Screens/HomeScreen';
+import PemesananScreen from './src/Screens/PemesananScreen';
+import PembatalanScreen from './src/Screens/PembatalanScreen';
+import Navigation from './src/Navigation';
+
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
+      {/* <HomeScreen /> */}
+      {/* <PemesananScreen /> */}
+      {/* <PembatalanScreen /> */}
+      <Navigation />
     </View>
   );
 }
@@ -13,8 +21,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#dbdbdb',
   },
 });

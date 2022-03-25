@@ -1,0 +1,13 @@
+[
+    {
+        "id": 1,
+        "pelabuhan_awal": "Bakauheni",
+        "pelabuhan_tujuan": "Merak",
+        "tanggal": "15 Maret 2022",
+        "jam": "15:30 WIB",
+        "layanan": "First Class",
+        "jenis_penumpang": "Dewasa",
+        "jumlah_penumpang": 1,
+        "harga": 100000
+    }
+]
