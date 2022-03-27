@@ -1,6 +1,5 @@
 import React from "react";
-import { StatusBar } from 'expo-status-bar';
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, Pressable } from "react-native";
 import { Entypo } from '@expo/vector-icons';
 
 import styles from "./PemesananStyles";
@@ -14,14 +13,13 @@ const PemesananScreen = () => {
 
     return (
         <View style={{ flex: 1 }}>
-            <StatusBar style="light" />
 
             <View style={styles.banner}>
                 <Text style={styles.bannerText}>Daftar Pemesanan</Text>
             </View>
 
             <FlatList
-                data={pemesanan}
+                data={pemesanan.pesanan}
                 renderItem={({ item }) => (
                     <View style={styles.container}>
                         <View style={styles.pemesananContainer}>
@@ -33,7 +31,7 @@ const PemesananScreen = () => {
                             <View style={styles.infoPerjalanan}>
                                 <Text style={{ fontWeight: 'bold' }}>Jadwal Masuk Pelabuhan</Text>
                                 <Text>{item.tanggal}</Text>
-                                <Text>{item.jam}</Text>
+                                <Text>{item.jam} WIB</Text>
                             </View>
                             <View style={styles.infoPerjalanan}>
                                 <Text style={{ fontWeight: 'bold' }}>Layanan</Text>
@@ -42,6 +40,13 @@ const PemesananScreen = () => {
                             <View style={styles.infoTiketContainer}>
                                 <Text>{item.jenis_penumpang} x {item.jumlah_penumpang}</Text>
                                 <Text>{formatHarga(item.harga)}</Text>
+                            </View>
+                            <View style={styles.batalContainer}>
+                                <Pressable style={styles.batal}>
+                                    <Text>
+                                        Batalkan Pesanan
+                                    </Text>
+                                </Pressable>
                             </View>
                         </View>
                     </View>

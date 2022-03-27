@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TextInput } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import styles from './PopUpStyles';
 import { AntDesign } from '@expo/vector-icons';
 
@@ -7,6 +7,11 @@ const PopUpJenisPenumpang = (props) => {
 
     const changeState = (bool) => {
         props.closePopUp(bool);
+    }
+
+    const onPressItem = (option) => {
+        props.closePopUp(false);
+        props.setData(option)
     }
 
     return (
@@ -17,23 +22,23 @@ const PopUpJenisPenumpang = (props) => {
                     <AntDesign name="close" size={30} color="black" onPress={() => changeState(false)} />
                 </View>
 
-                <View style={styles.harborContainer}>
+                <Pressable style={styles.harborContainer} onPress={() => onPressItem('Dewasa')}>
                     <View style={{ marginLeft: 10 }}>
                         <Text>Dewasa</Text>
                     </View>
-                </View>
+                </Pressable>
 
-                <View style={styles.harborContainer}>
+                <Pressable style={styles.harborContainer} onPress={() => onPressItem('Remaja')}>
                     <View style={{ marginLeft: 10 }}>
                         <Text>Remaja</Text>
                     </View>
-                </View>
+                </Pressable>
 
-                <View style={styles.harborContainer}>
+                <Pressable style={styles.harborContainer} onPress={() => onPressItem('Anak-Anak')}>
                     <View style={{ marginLeft: 10 }}>
                         <Text>Anak-Anak</Text>
                     </View>
-                </View>
+                </Pressable>
             </View>
         </View >
     );

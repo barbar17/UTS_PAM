@@ -1,9 +1,11 @@
 import React from "react";
 import { View, Text, FlatList, Pressable } from "react-native";
 import styles from "./PopUpStyles";
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, Entypo } from '@expo/vector-icons';
 
-const PopUpKelas = (props) => {
+import pelabuhan from '../../../../../assets/data/pelabuhan.json';
+
+const PopUpPelabuhanTujuan = (props) => {
 
     const changeState = (bool) => {
         props.closePopUp(bool);
@@ -14,8 +16,6 @@ const PopUpKelas = (props) => {
         props.setData(option)
     }
 
-    const kelas = ['VIP Class', 'First Class', 'Business Class', 'Economy Class'];
-
     return (
         <View style={styles.popUpBackground}>
             <View style={styles.popUp}>
@@ -23,21 +23,21 @@ const PopUpKelas = (props) => {
                     <Text style={styles.popUpTitle}>{props.title}</Text>
                     <AntDesign name="close" size={30} color="black" onPress={() => changeState(false)} />
                 </View>
-
                 <FlatList
-                    data={kelas}
+                    data={pelabuhan}
                     renderItem={({ item }) => (
-                        <Pressable style={styles.harborContainer} onPress={() => onPressItem(item)}>
-                            <View style={{ marginLeft: 10, flexDirection: "row", alignItems: 'center' }}>
-                                <Text>{item}</Text>
+                        <Pressable style={styles.harborContainer} onPress={() => onPressItem(item.nama)}>
+                            <Entypo name="location-pin" size={30} color="black" />
+                            <View style={{ marginLeft: 10 }}>
+                                <Text>{item.provinsi}</Text>
+                                <Text style={styles.harborName}>{item.nama}</Text>
                             </View>
                         </Pressable>
                     )}
-                    keyExtractor={index => index}
                 />
             </View>
         </View>
     );
 };
 
-export default PopUpKelas;
+export default PopUpPelabuhanTujuan;

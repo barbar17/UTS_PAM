@@ -1,13 +1,18 @@
 import React from "react";
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, Pressable } from "react-native";
 import styles from "./PopUpStyles";
 import { AntDesign, Entypo } from '@expo/vector-icons';
 import pelabuhan from '../../../../../assets/data/pelabuhan.json';
 
-const PopUpPelabuhan = (props) => {
+const PopUpPelabuhanAwal = (props) => {
 
     const changeState = (bool) => {
         props.closePopUp(bool);
+    }
+
+    const onPressItem = (option) => {
+        props.closePopUp(false);
+        props.setData(option)
     }
 
     return (
@@ -20,13 +25,13 @@ const PopUpPelabuhan = (props) => {
                 <FlatList
                     data={pelabuhan}
                     renderItem={({ item }) => (
-                        <View style={styles.harborContainer}>
+                        <Pressable style={styles.harborContainer} onPress={() => onPressItem(item.nama)}>
                             <Entypo name="location-pin" size={30} color="black" />
                             <View style={{ marginLeft: 10 }}>
                                 <Text>{item.provinsi}</Text>
                                 <Text style={styles.harborName}>{item.nama}</Text>
                             </View>
-                        </View>
+                        </Pressable>
                     )}
                 />
             </View>
@@ -34,4 +39,4 @@ const PopUpPelabuhan = (props) => {
     );
 };
 
-export default PopUpPelabuhan;
+export default PopUpPelabuhanAwal;

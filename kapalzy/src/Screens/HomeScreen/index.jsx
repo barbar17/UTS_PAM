@@ -2,23 +2,34 @@ import React, { useState } from "react";
 import { Text, View, Pressable, Modal } from "react-native";
 import { Fontisto, MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
 import DateTimePicker from "@react-native-community/datetimepicker";
+import moment from "moment";
+import 'moment/locale/id';
+moment().locale('id');
 
 import styles from './HomeStyles';
-import PopUpPelabuhan from "./Components/PopUpPelabuhan";
+import PopUpPelabuhanAwal from "./Components/PopUpPelabuhanAwal";
+import PopUpPelabuhanTujuan from "./Components/PopUpPelabuhanTujuan";
 import PopUpKelas from "./Components/PopUpKelas";
 import PopUpJenisPenumpang from "./Components/PopUpJenisPenumpang";
 import PopUpJumlahPenumpang from "./Components/PopUpJumlahPenumpang";
 
 const HomeScreen = () => {
 
-    const [popUpPelabuhanVisible, setPopUpPelabuhanVisible] = useState(false);
+    //Setting pop up visibilitas dan title
+    const [popUpPelabuhanAwalVisible, setPopUpPelabuhanAwalVisible] = useState(false);
+    const [popUpPelabuhanTujuanVisible, setPopUpPelabuhanTujuanVisible] = useState(false);
     const [popUpKelasVisible, setPopUpKelasVisible] = useState(false);
     const [popUpJenisPenumpangVisible, setPopUpJenisPenumpangVisible] = useState(false);
     const [popUpJumlahPenumpangVisible, setPopUpJumlahPenumpangVisible] = useState(false);
     const [popUpTitle, setPopUpTitle] = useState('')
 
-    const popUpPelabuhan = (title) => {
-        setPopUpPelabuhanVisible(true);
+    const popUpPelabuhanAwal = (title) => {
+        setPopUpPelabuhanAwalVisible(true);
+        setPopUpTitle(title);
+    }
+
+    const popUpPelabuhanTujuan = (title) => {
+        setPopUpPelabuhanTujuanVisible(true);
         setPopUpTitle(title);
     }
 
@@ -37,49 +48,114 @@ const HomeScreen = () => {
         setPopUpTitle(title);
     }
 
+    //setting tanggal dan jam
     const [date, setDate] = useState(new Date());
-    const [mode, setMode] = useState('date');
-    const [show, setShow] = useState(false);
+    const [showDate, setShowDate] = useState(false);
+    const [showTime, setShowTime] = useState(false);
 
-    const onChange = (event, selectedDate) => {
+    const onChangeDate = (event, selectedDate) => {
         const currentDate = selectedDate || date;
         setDate(currentDate);
-        setShow(false);
+        setShowDate(false);
+
+        let tempDate = new Date(currentDate);
+        let fullDate = moment(tempDate).format('Do MMMM YYYY');
+
+        setTanggal(fullDate);
     }
 
-    const showMode = (currentMode) => {
-        setShow(true)
-        setMode(currentMode)
+    const onChangeTime = (event, selectedDate) => {
+        const currentDate = selectedDate || date;
+        setDate(currentDate);
+        setShowTime(false);
+
+        let tempDate = new Date(currentDate);
+        let fullTime = moment(tempDate).format('HH:mm')
+
+        setJam(fullTime);
+    }
+
+    //setting data yang dipilih
+    const [pelabuhan_awal, setPelabuhan_awal] = useState('Pilih Pelabuhan Awal');
+    const [pelabuhan_tujuan, setPelabuhan_tujuan] = useState('Pilih Pelabuhan Tujuan');
+    const [layanan, setLayanan] = useState('Pilih Kelas Layanan');
+    const [jenis_penumpang, setjenis_Penumpang] = useState('Dewasa');
+    const [jumlah_penumpang, setjumlah_Penumpang] = useState(1);
+    const [tanggal, setTanggal] = useState('Pilih Tanggal Masuk');
+    const [jam, setJam] = useState('Pilih Jam Masuk');
+    const [harga, setHarga] = useState();
+
+    const detHarga = (kelas) => {
+        let tempHarga;
+        setLayanan(kelas);
+
+        if (kelas == 'VIP Class') {
+            tempHarga = 200000;
+        } else if (kelas == 'First Class') {
+            tempHarga = 150000;
+        } else if (kelas == 'Business Class') {
+            tempHarga = 100000;
+        } else if (kelas == 'Economy Class') {
+            tempHarga = 50000;
+        }
+
+        let totalHarga = tempHarga * jumlah_penumpang;
+        setHarga(totalHarga)
+    }
+
+    const handleSubmit = () => {
+        const pesanan = { pelabuhan_awal, pelabuhan_tujuan, tanggal, jam, layanan, jenis_penumpang, jumlah_penumpang, harga };
+
+        fetch('https://3867-125-167-56-183.ngrok.io/pesanan', {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(pesanan)
+        }).then(() => {
+            console.log('new blog add');
+        })
     }
 
     return (
         <View style={styles.container}>
 
             {/* Menu Pop Up */}
-            <Modal transparent visible={popUpPelabuhanVisible} animationType='fade'>
-                <PopUpPelabuhan closePopUp={setPopUpPelabuhanVisible} title={popUpTitle} />
+            <Modal transparent visible={popUpPelabuhanAwalVisible} animationType='fade' >
+                <PopUpPelabuhanAwal closePopUp={setPopUpPelabuhanAwalVisible} title={popUpTitle} setData={setPelabuhan_awal} />
+            </Modal>
+
+            <Modal transparent visible={popUpPelabuhanTujuanVisible} animationType='fade' >
+                <PopUpPelabuhanTujuan closePopUp={setPopUpPelabuhanTujuanVisible} title={popUpTitle} setData={setPelabuhan_tujuan} />
             </Modal>
 
             <Modal transparent visible={popUpKelasVisible} animationType='fade'>
-                <PopUpKelas closePopUp={setPopUpKelasVisible} title={popUpTitle} />
+                <PopUpKelas closePopUp={setPopUpKelasVisible} title={popUpTitle} setData={detHarga} />
             </Modal>
 
             <Modal transparent visible={popUpJenisPenumpangVisible} animationType='fade'>
-                <PopUpJenisPenumpang closePopUp={setPopUpJenisPenumpangVisible} title={popUpTitle} />
+                <PopUpJenisPenumpang closePopUp={setPopUpJenisPenumpangVisible} title={popUpTitle} setData={setjenis_Penumpang} />
             </Modal>
 
             <Modal transparent visible={popUpJumlahPenumpangVisible} animationType='fade'>
-                <PopUpJumlahPenumpang closePopUp={setPopUpJumlahPenumpangVisible} title={popUpTitle} />
+                <PopUpJumlahPenumpang closePopUp={setPopUpJumlahPenumpangVisible} title={popUpTitle} setData={setjumlah_Penumpang} />
             </Modal>
 
             {/* Tanggal dan Jam */}
-            {show && (<DateTimePicker
+            {showDate && (<DateTimePicker
                 testID='dateTimePicker'
                 value={date}
-                mode={mode}
+                mode='date'
                 is24Hour={true}
                 display='default'
-                onChange={onChange}
+                onChange={onChangeDate}
+            />)}
+
+            {showTime && (<DateTimePicker
+                testID='dateTimePicker'
+                value={date}
+                mode='time'
+                is24Hour={true}
+                display='default'
+                onChange={onChangeTime}
             />)}
 
             {/* Menu Home Palkapal */}
@@ -95,8 +171,8 @@ const HomeScreen = () => {
                     <Text style={styles.inputBoxTitle}>Pelabuhan Awal</Text>
                     <View style={styles.inputBoxContainer}>
                         <Fontisto name="ship" size={30} color="grey" />
-                        <Pressable style={styles.inputBox} onPress={() => popUpPelabuhan('Pilih Pelabuhan Awal')}>
-                            <Text>Pilih Pelabuhan Awal</Text>
+                        <Pressable style={styles.inputBox} onPress={() => popUpPelabuhanAwal('Pilih Pelabuhan Awal')}>
+                            <Text>{pelabuhan_awal}</Text>
                         </Pressable>
                     </View>
                 </View>
@@ -105,8 +181,8 @@ const HomeScreen = () => {
                     <Text style={styles.inputBoxTitle}>Pelabuhan Tujuan</Text>
                     <View style={styles.inputBoxContainer}>
                         <Fontisto name="ship" size={30} color="grey" />
-                        <Pressable style={styles.inputBox} onPress={() => popUpPelabuhan('Pilih Pelabuhan Tujuan')}>
-                            <Text>Pilih Pelabuhan Tujuan</Text>
+                        <Pressable style={styles.inputBox} onPress={() => popUpPelabuhanTujuan('Pilih Pelabuhan Tujuan')}>
+                            <Text>{pelabuhan_tujuan}</Text>
                         </Pressable>
                     </View>
                 </View>
@@ -116,7 +192,7 @@ const HomeScreen = () => {
                     <View style={styles.inputBoxContainer}>
                         <MaterialCommunityIcons name="seat-passenger" size={30} color="grey" />
                         <Pressable style={styles.inputBox} onPress={() => popUpKelas('Pilih Kelas Layanan')}>
-                            <Text>Pilih Kelas Layanan</Text>
+                            <Text>{layanan}</Text>
                         </Pressable>
                     </View>
                 </View>
@@ -125,8 +201,8 @@ const HomeScreen = () => {
                     <Text style={styles.inputBoxTitle}>Tanggal Masuk Pelabuhan</Text>
                     <View style={styles.inputBoxContainer}>
                         <FontAwesome5 name="calendar-alt" size={30} color="grey" />
-                        <Pressable style={styles.inputBox} onPress={() => showMode('date')}>
-                            <Text>Pilih Tanggal Masuk</Text>
+                        <Pressable style={styles.inputBox} onPress={() => setShowDate(true)}>
+                            <Text>{tanggal}</Text>
                         </Pressable>
                     </View>
                 </View>
@@ -135,24 +211,24 @@ const HomeScreen = () => {
                     <Text style={styles.inputBoxTitle}>Jam Masuk Pelabuhan</Text>
                     <View style={styles.inputBoxContainer}>
                         <FontAwesome5 name="clock" size={30} color="grey" />
-                        <Pressable style={styles.inputBox} onPress={() => showMode('time')}>
-                            <Text>Pilih Jam Masuk</Text>
+                        <Pressable style={styles.inputBox} onPress={() => setShowTime(true)}>
+                            <Text>{jam}</Text>
                         </Pressable>
                     </View>
                 </View>
 
                 <View style={styles.inputBoxContainer}>
                     <Pressable style={styles.jenisPenumpang} onPress={() => popUpJenisPenumpang('Penumpang')}>
-                        <Text>Dewasa</Text>
+                        <Text>{jenis_penumpang}</Text>
                     </Pressable>
 
                     <Pressable style={styles.jumlahPenumpang} onPress={() => popUpJumlahPenumpang('Penumpang')}>
-                        <Text>1 Orang</Text>
+                        <Text>{jumlah_penumpang} Orang</Text>
                     </Pressable>
                 </View>
 
                 <View style={styles.submitContainer}>
-                    <Pressable style={styles.submit}>
+                    <Pressable style={styles.submit} onPress={handleSubmit}>
                         <FontAwesome5 name="search" size={24} color="black" />
                         <Text style={{ fontWeight: 'bold' }}>Buat Tiket</Text>
                     </Pressable>

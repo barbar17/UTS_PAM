@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         paddingHorizontal: 20,
         borderRadius: 10,
-        height: 248,
     },
     popUpHeader: {
 

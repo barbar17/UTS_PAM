@@ -1,35 +1,15 @@
-[
-    {
-        "id": 1,
-        "pelabuhan_awal": "Bakauheni",
-        "pelabuhan_tujuan": "Merak",
-        "tanggal": "17 Maret 2022",
-        "jam": "15:30 WIB",
-        "layanan": "Express",
-        "jenis_penumpang": "Dewasa",
-        "jumlah_penumpang": 1,
-        "harga": 65000
-    },
-    {
-        "id": 2,
-        "pelabuhan_awal": "Tanjung Priok",
-        "pelabuhan_tujuan": "Harbour Bay",
-        "tanggal": "23 Maret 2022",
-        "jam": "07:30 WIB",
-        "layanan": "First Class",
-        "jenis_penumpang": "Dewasa",
-        "jumlah_penumpang": 2,
-        "harga": 200000
-    },
-    {
-        "id": 3,
-        "pelabuhan_awal": "Merak",
-        "pelabuhan_tujuan": "Bakauheni",
-        "tanggal": "10 April 2022",
-        "jam": "13:00 WIB",
-        "layanan": "Economy",
-        "jenis_penumpang": "Remaja",
-        "jumlah_penumpang": 5,
-        "harga": 250000
-    }
-]
+{
+    "pesanan": [
+        {
+            "pelabuhan_awal": "Tanjung Perak",
+            "pelabuhan_tujuan": "Harbour Bay",
+            "tanggal": "10 Maret 2022",
+            "jam": "09:36",
+            "layanan": "First Class",
+            "jenis_penumpang": "Dewasa",
+            "jumlah_penumpang": 1,
+            "harga": 150000,
+            "id": 1
+        }
+    ]
+}

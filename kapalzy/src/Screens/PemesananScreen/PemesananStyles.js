@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        backgroundColor: '#dbdbdb',
+        backgroundColor: '#f6f6f6',
         paddingHorizontal: 20,
         paddingVertical: 5,
     },
@@ -47,6 +47,17 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
+    batalContainer: {
+        paddingTop: 5,
+    },
+    batal: {
+        backgroundColor: 'tomato',
+        padding: 5,
+        borderRadius: 5,
+        borderWidth: StyleSheet.hairlineWidth,
+        width: 130,
+        alignItems: 'center',
+    }
 });
 
 export default styles;

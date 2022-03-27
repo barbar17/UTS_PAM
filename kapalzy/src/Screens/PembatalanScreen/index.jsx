@@ -1,5 +1,4 @@
 import React from "react";
-import { StatusBar } from 'expo-status-bar';
 import { View, Text, FlatList } from "react-native";
 import { Entypo } from '@expo/vector-icons';
 
@@ -14,14 +13,13 @@ const PembatalanScreen = () => {
 
     return (
         <View style={{ flex: 1 }}>
-            <StatusBar style="light" />
 
             <View style={styles.banner}>
                 <Text style={styles.bannerText}>Daftar Pembatalan</Text>
             </View>
 
             <FlatList
-                data={pembatalan}
+                data={pembatalan.pesanan_batal}
                 renderItem={({ item }) => (
                     <View style={styles.container}>
                         <View style={styles.pemesananContainer}>
