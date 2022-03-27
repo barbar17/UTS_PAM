@@ -11,6 +11,6 @@ Terdapat tiga screen pada aplikasi yaitu Home Screen dan Pemesanan Screen, dan P
 ### -Pemesanan Screen
 <img src="Pemesanan Screen.jpeg" width="270" height="540">
 ### -Pembatalan Screen
-<img src="Pembatalan Screen.jpeg" width="270" height="540">
+<img src="Screen Pembatalan.jpeg" width="270" height="540">
 ### -Lainnya PopUp
 <img src="Lainnya PopUp.jpeg" width="270" height="540">
