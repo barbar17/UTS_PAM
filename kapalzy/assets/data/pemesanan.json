@@ -1,15 +1,26 @@
 {
-    "pesanan": [
-        {
-            "pelabuhan_awal": "Tanjung Perak",
-            "pelabuhan_tujuan": "Harbour Bay",
-            "tanggal": "10 Maret 2022",
-            "jam": "09:36",
-            "layanan": "First Class",
-            "jenis_penumpang": "Dewasa",
-            "jumlah_penumpang": 1,
-            "harga": 150000,
-            "id": 1
-        }
-    ]
+  "pesanan": [
+    {
+      "pelabuhan_awal": "Tanjung Perak",
+      "pelabuhan_tujuan": "Harbour Bay",
+      "tanggal": "10 Maret 2022",
+      "jam": "09:36",
+      "layanan": "First Class",
+      "jenis_penumpang": "Dewasa",
+      "jumlah_penumpang": 1,
+      "harga": 150000,
+      "id": 1
+    },
+    {
+      "pelabuhan_awal": "Ketapang",
+      "pelabuhan_tujuan": "Bakauheni",
+      "tanggal": "30 Maret 2022",
+      "jam": "12:30",
+      "layanan": "VIP Class",
+      "jenis_penumpang": "Dewasa",
+      "jumlah_penumpang": 1,
+      "harga": 200000,
+      "id": 2
+    }
+  ]
 }
