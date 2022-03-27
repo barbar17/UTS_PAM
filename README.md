@@ -17,6 +17,6 @@ Terdapat dua screen pada aplikasi yaitu HomeScreen dan JadwalScreen. HomeScreen 
 #### --Tanggal Keberangkatan
 tanggal keberangkatan yang dapat digunakan dari tanggal 14/03/2022 sampai 18/03/2022<br><br>
 ### -HomeScreen
-<img src="Home Screen.png" width="270" height="540"><br>
+<img src="Home Screen.jpeg" width="270" height="540"><br>
 ### -JadwalScreen
-<img src="Pemesanan Screen.png" width="270" height="540">
+<img src="Pemesanan Screen.jpeg" width="270" height="540">
