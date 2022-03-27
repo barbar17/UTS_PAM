@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, Pressable, Modal } from "react-native";
+import { Text, View, Pressable, Modal, StyleSheet } from "react-native";
 import { Fontisto, MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
 import DateTimePicker from "@react-native-community/datetimepicker";
 import moment from "moment";
@@ -163,7 +163,10 @@ const HomeScreen = () => {
 
                 <View style={styles.titleContainer}>
                     <Text style={styles.title}>
-                        PALKAPAL
+                        KAPALZY
+                    </Text>
+                    <Text style={{ fontSize: 10, }}>
+                        By Akbar Maulana 119140151
                     </Text>
                 </View>
 
