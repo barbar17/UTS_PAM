@@ -12,15 +12,48 @@
       "id": 1
     },
     {
-      "pelabuhan_awal": "Ketapang",
-      "pelabuhan_tujuan": "Bakauheni",
-      "tanggal": "30 Maret 2022",
+      "pelabuhan_awal": "Bakauheni",
+      "pelabuhan_tujuan": "Merak",
+      "tanggal": "5 April 2022",
+      "jam": "03:15",
+      "layanan": "First Class",
+      "jenis_penumpang": "Dewasa",
+      "jumlah_penumpang": "2",
+      "harga": 150000,
+      "id": 2
+    },
+    {
+      "pelabuhan_awal": "Tanjung Priok",
+      "pelabuhan_tujuan": "Dwikora",
+      "tanggal": "12 Mei 2022",
       "jam": "12:30",
       "layanan": "VIP Class",
-      "jenis_penumpang": "Dewasa",
-      "jumlah_penumpang": 1,
-      "harga": 200000,
-      "id": 2
+      "jenis_penumpang": "Remaja",
+      "jumlah_penumpang": "5",
+      "harga": 400000,
+      "id": 3
+    },
+    {
+      "pelabuhan_awal": "Bakauheni",
+      "pelabuhan_tujuan": "Pilih Pelabuhan Tujuan",
+      "tanggal": "Pilih Tanggal Masuk",
+      "jam": "Pilih Jam Masuk",
+      "layanan": "Economy Class",
+      "jenis_penumpang": "Anak-Anak",
+      "jumlah_penumpang": "",
+      "harga": 0,
+      "id": 4
+    },
+    {
+      "pelabuhan_awal": "Bakauheni",
+      "pelabuhan_tujuan": "Pilih Pelabuhan Tujuan",
+      "tanggal": "Pilih Tanggal Masuk",
+      "jam": "04:28",
+      "layanan": "Economy Class",
+      "jenis_penumpang": "Anak-Anak",
+      "jumlah_penumpang": "",
+      "harga": 0,
+      "id": 5
     }
   ]
 }
