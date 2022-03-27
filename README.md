@@ -1,22 +1,16 @@
-# UTS_PAM
-# Flight App
+# UTS_PAM | KAPALZY
 ## Identitas
 Nama : Akbar Maulana<br>
 NIM : 119140151<br>
 Kelas : PAM RA
 ## Penjelasan
-Terdapat dua screen pada aplikasi yaitu HomeScreen dan JadwalScreen. HomeScreen berisi menu pencarian yang dapat mencari jadwal penerbangan. JadwalScreen berisi hasil pencarian. Namun pada pencarian di aplikasi tersebut hanya bisa dilakukan dengan per satu parameter, contoh hanya mencari dengan parameter lokasi tujuan saja, atau lokasi berangkat saja, atau tanggal saja, tidak dapat mencari dengan dua atau tiga parameter secara sekaligus.<br>
+Terdapat tiga screen pada aplikasi yaitu Home Screen dan Pemesanan Screen, dan Pembatalan Screen serta satu menu Pop Up yaitu menu Lainnya. HomeScreen berisi fitur menambah pesanan. Pemesanan Screen berisi daftar pesanan, Pembatalan Screen berisi pesanan yang dibatalkan, dan menu Lainnya berisikan 4 menu lainnya. Pada aplikasi ini digunakan JSON untuk menyimpan data pelabuhan, data pemesanan, dan juga data pembatalan. Aplikasi sudah bisa menambahkan jadwal pesanan, dan menampilkannya pada Pemesanan Screen, namun aplikasi belum bisa untuk melakukan pembatalan.<br>
 ### -Data jadwal yang dapat digunakan dalam kolom pencarian
-#### --Bandara Keberangkatan dan Tujuan
-1. Radin Inten II<br>
-2. Jakarta<br>
-3. Ngurah Rai<br>
-4. Minangkabau<br>
-5. El Tari<br>
-6. Soekarno-Hatta<br>
-#### --Tanggal Keberangkatan
-tanggal keberangkatan yang dapat digunakan dari tanggal 14/03/2022 sampai 18/03/2022<br><br>
-### -HomeScreen
+### -Home Screen
 <img src="Home Screen.jpeg" width="270" height="540"><br>
-### -JadwalScreen
+### -Pemesanan Screen
 <img src="Pemesanan Screen.jpeg" width="270" height="540">
+### -Pembatalan Screen
+<img src="Pembatalan Screen.jpeg" width="270" height="540">
+### -Lainnya PopUp
+<img src="Lainnya PopUp.jpeg" width="270" height="540">
